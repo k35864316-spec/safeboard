@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { TOPICS } from "@/lib/securityTopics";
 
+// 인젝션·XSS·CSRF 방어는 아직 구현하지 않아 소개 카드에서 제외한다.
+const HIDDEN = new Set(["injection", "xss", "csrf"]);
+const SHOWN = TOPICS.filter((t) => !HIDDEN.has(t.slug));
+
 export default function Landing({ loggedIn = false }: { loggedIn?: boolean }) {
   return (
     <div className="landing">
@@ -33,7 +37,7 @@ export default function Landing({ loggedIn = false }: { loggedIn?: boolean }) {
 
       <h2 className="section-title">적용한 보안 기능</h2>
       <div className="feature-grid">
-        {TOPICS.map((t) => (
+        {SHOWN.map((t) => (
           <article key={t.slug} className="card feature">
             <h3 className="feature-title">
               <span aria-hidden="true">{t.icon}</span> {t.title}
