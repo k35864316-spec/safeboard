@@ -5,9 +5,9 @@ export default function Landing({ loggedIn = false }: { loggedIn?: boolean }) {
   return (
     <div className="landing">
       <section className="hero card">
-        <p className="hero-kicker">웹서버보안프로그래밍 팀 프로젝트 · 세이프보드 팀</p>
+        <p className="hero-kicker">웹서버보안프로그래밍 팀 프로젝트</p>
         <h1 className="hero-title">
-          <span aria-hidden="true">🛡️</span> 보안을 기능마다 적용한 게시판, 세이프보드
+          <span aria-hidden="true">🛡️</span> 보안을 기능마다 적용한 게시판
         </h1>
         <p className="hero-desc">
           게시판의 각 기능에 대응하는 웹 취약점을 찾고, 그 취약점을 막는 방어 기법을 직접 구현했습니다.

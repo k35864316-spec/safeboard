@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <Header user={session?.user ?? null} />
           <main className="container main">{children}</main>
           <footer className="site-footer">
-            <div className="container">세이프보드 · 웹서버보안프로그래밍 팀 프로젝트</div>
+            <div className="container">웹서버보안프로그래밍 팀 프로젝트</div>
           </footer>
         </AuthProvider>
       </body>
