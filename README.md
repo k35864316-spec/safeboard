@@ -97,9 +97,10 @@ npm run dev        # 개발 서버 → http://localhost:3000  (메인 소개 페
 
 | 구분 | 아이디 | 비밀번호 |
 |---|---|---|
-| 관리자 | `admin` | `Admin1234!` (`.env.local` 에 `ADMIN_PASSWORD=...` 를 넣고 seed 하면 변경 가능) |
+| 관리자 | `admin` | `admin` (`ADMIN_PASSWORD=...` 환경변수로 변경 가능) |
 | 일반 | `student1` | `Student1234!` |
 
+- `admin` 계정은 DB 에 없으면 **`admin` 으로 로그인을 시도하는 순간 자동으로 만들어집니다**(seed 를 안 해도 됨). 비밀번호는 환경변수 `ADMIN_PASSWORD`, 없으면 `admin` 입니다. Vercel 에서는 Settings → Environment Variables 에 `ADMIN_PASSWORD` 를 추가하면 됩니다.
 - seed 는 이미 있는 계정은 건너뜁니다. 비밀번호를 바꾸려면 DB 의 `users` 에서 해당 계정을 지운 뒤 다시 실행하세요.
 - ⚠️ 개발용 계정입니다. 실제로 쓰는 곳에서는 사용하지 마세요.
 

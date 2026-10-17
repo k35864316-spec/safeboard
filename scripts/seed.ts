@@ -17,7 +17,7 @@ async function main() {
 
   await connectDB();
 
-  const adminPassword = process.env.ADMIN_PASSWORD || "Admin1234!";
+  const adminPassword = process.env.ADMIN_PASSWORD || "admin";
   const accounts = [
     { username: "admin", password: adminPassword, role: "admin" as const },
     { username: "student1", password: "Student1234!", role: "user" as const },
@@ -41,7 +41,7 @@ async function main() {
 
   // 게시글은 만들지 않는다. (계정만 생성)
 
-  console.log("\n시드 완료.  관리자: admin / (ADMIN_PASSWORD 또는 Admin1234!),  일반: student1 / Student1234!");
+  console.log("\n시드 완료.  관리자: admin / (ADMIN_PASSWORD 또는 admin),  일반: student1 / Student1234!");
   console.log("※ 개발용 계정입니다. 실제 배포 전에는 반드시 비밀번호를 바꾸거나 계정을 삭제하세요.");
   await mongoose.disconnect();
 }

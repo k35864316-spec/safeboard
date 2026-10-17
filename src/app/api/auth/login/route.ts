@@ -3,6 +3,7 @@ import { connectDB } from "@/lib/db";
 import { User } from "@/lib/models/User";
 import { DUMMY_HASH, verifyPassword } from "@/lib/auth/password";
 import { issueNewSession } from "@/lib/auth/session";
+import { ensureDefaultAdmin } from "@/lib/auth/bootstrap";
 import {
   clearLoginFailures,
   getLockRemainingSeconds,
@@ -27,6 +28,8 @@ export const POST = handle(async (req) => {
   if (lockedFor > 0) throw new HttpError(429, LOCKED_MESSAGE(lockedFor));
 
   await connectDB();
+  // admin 로 로그인하려는데 관리자 계정이 아직 없으면 먼저 만들어 둔다. (seed 를 안 해도 로그인 가능)
+  if (username === "admin") await ensureDefaultAdmin();
   const user = await User.findOne({ username }).select("+passwordHash");
 
   // 아이디가 없어도 bcrypt 비교를 똑같이 수행 (응답 시간으로 가입 여부를 추측하지 못하게)
