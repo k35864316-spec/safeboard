@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { TOPICS } from "@/lib/securityTopics";
 
-// 인젝션·XSS·CSRF 방어는 아직 구현하지 않아 소개 카드에서 제외한다.
-const HIDDEN = new Set(["injection", "xss", "csrf"]);
-const SHOWN = TOPICS.filter((t) => !HIDDEN.has(t.slug));
+// 아직 구현하지 않은 보안 기능: 카드는 보이되 "미구현" 으로 표시한다.
+const PENDING: Record<string, string> = {
+  injection: "입력값 검증 · 인젝션 방어는 아직 구현하지 않았습니다. 구현 예정입니다.",
+  xss: "XSS 방어는 아직 구현하지 않았습니다. 구현 예정입니다.",
+  csrf: "CSRF 방어는 아직 구현하지 않았습니다. 구현 예정입니다.",
+};
 
 export default function Landing({ loggedIn = false }: { loggedIn?: boolean }) {
   return (
@@ -37,12 +40,13 @@ export default function Landing({ loggedIn = false }: { loggedIn?: boolean }) {
 
       <h2 className="section-title">적용한 보안 기능</h2>
       <div className="feature-grid">
-        {SHOWN.map((t) => (
+        {TOPICS.map((t) => (
           <article key={t.slug} className="card feature">
             <h3 className="feature-title">
               <span aria-hidden="true">{t.icon}</span> {t.title}
+              {PENDING[t.slug] && <span className="badge-pending">미구현</span>}
             </h3>
-            <p className="feature-sum">{t.summary}</p>
+            <p className="feature-sum">{PENDING[t.slug] ?? t.summary}</p>
           </article>
         ))}
       </div>

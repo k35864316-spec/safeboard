@@ -746,3 +746,15 @@ a.page-link:hover {
     padding: 18px;
   }
 }
+
+.badge-pending {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 12px;
+  font-weight: 600;
+  vertical-align: middle;
+  opacity: 0.75;
+}
