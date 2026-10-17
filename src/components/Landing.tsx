@@ -14,7 +14,7 @@ export default function Landing({ loggedIn = false }: { loggedIn?: boolean }) {
           <span aria-hidden="true">🛡️</span> 보안을 기능마다 적용한 게시판
         </h1>
         <p className="hero-desc">
-          게시판의 각 기능에 대응하는 웹 취약점을 찾고, 그 취약점을 막는 방어 기법을 직접 구현했습니다.
+          게시판의 각 기능에 대응하는 웹 취약점을 찾고, 그에 맞는 보안 기능을 단계적으로 적용하고 있습니다.
           {loggedIn ? "상단의 게시판 메뉴에서 게시판을 이용할 수 있습니다." : "회원가입 후 로그인하면 게시판을 이용할 수 있습니다."}
         </p>
         <div className="hero-actions">
