@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "세이프보드: 서버 디버그 (npm run dev)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev"
+    },
+    {
+      "name": "세이프보드: 시드 데이터 생성 (npm run seed)",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run seed"
+    }
+  ]
+}
